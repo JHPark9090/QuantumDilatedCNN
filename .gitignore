@@ -1,0 +1,71 @@
+# Data files (too large for git)
+scripts/data/
+data/
+
+# Results and checkpoints (generated during runs)
+results/cifar10/*.csv
+results/cifar10/*.pt
+results/cifar10/*.out
+results/cifar10/*.err
+results/cifar10/checkpoints/
+results/coco/*.csv
+results/coco/*.pt
+results/coco/*.out
+results/coco/*.err
+results/coco/checkpoints/
+results/comprehensive_metrics/*.npy
+results/comprehensive_metrics/*.csv
+results/comprehensive_metrics/metrics_*/
+results/comprehensive_metrics/logs/
+results/test_comprehensive_metrics/
+results/test_fix/
+results/entanglement/
+
+# Keep preliminary results (small, important for documentation)
+# !results/preliminary_results/
+
+# Python cache
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+
+# Jupyter Notebook
+.ipynb_checkpoints/
+*.ipynb
+
+# Environment
+.env
+.venv
+env/
+venv/
+conda-envs/
+conda-cache/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Large files
+*.tar.gz
+*.zip
+*.h5
+*.hdf5
+*.pkl
+*.pickle
+
+# SLURM logs (keep templates, ignore runtime logs)
+slurm-*.out
+slurm-*.err
+*.out
+*.err
+
+# Nested result paths
+results/cifar10/pscratch/
+results/coco/pscratch/

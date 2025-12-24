@@ -1,0 +1,15 @@
+# Core dependencies for Quantum Dilated CNN experiments
+torch>=2.0.0
+torchvision>=0.15.0
+pennylane>=0.30.0
+numpy>=1.24.0
+pandas>=2.0.0
+scipy>=1.10.0
+scikit-learn>=1.2.0
+tqdm>=4.65.0
+matplotlib>=3.7.0
+Pillow>=9.5.0
+pycocotools>=2.0.6
+
+# Optional: for experiment tracking
+# wandb>=0.15.0
