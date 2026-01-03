@@ -109,6 +109,7 @@ The `measure_comprehensive_metrics.py` script computes 6 key metrics that charac
 | **Expressibility (KL)** | KL divergence from Haar distribution | [0, ∞) | Less expressive |
 | **Expressibility (JS)** | Jensen-Shannon divergence | [0, 1] | Less expressive |
 | **Effective Dimension** | Model capacity (Fisher Information) | [0, ∞) | Higher capacity |
+| **Effective Volume**(*draft*) | Entangling gate volume contributing to an observable | [0, ∞) | More noise-sensitive /higher classical computational cost |
 
 ### Detailed Metric Explanations
 
@@ -182,6 +183,29 @@ The `measure_comprehensive_metrics.py` script computes 6 key metrics that charac
 **Interpretation**:
 - Maximum entropy = log₂(dim) indicates maximal entanglement across the bipartition
 - Useful for understanding how entanglement scales with system size
+
+#### 7. Effective Volume *(draft)*
+> **Note (temporary):**  
+> By computing V_eff of the circuit, we can establish a bridge between experimental signal-to-noise degradation and the classical computational hardness of simulating the same observable, in a way that allows hardware-level difficulty to be reflected within classical simulations.
+
+**What it measures**: The number of entangling two-qubit gates that  contribute to the expectation value of a specific observable O.
+
+**Formula**:  
+$F_{\mathrm{eff}} \sim \exp(-\varepsilon V_{\mathrm{eff}})$  
+
+where $\varepsilon$ is the dominant error per two-qubit entangling gate, $V_{\mathrm{eff}}$ is the effective volume, and $F_{\mathrm{eff}}$ is the observable-dependent effective fidelity.  
+
+This formula represents the scaling relation between the effective fidelity of an observable and the effective volume.
+
+> **Notes(temporary):**  
+> - Unlike other metrics, I am not sure this quantity can be computed solely from the state vector.
+> - In case the entanglement is non-local or genuinely multipartite, I assume it can be decomposed into a sequence of two-qubit entangling gates and count its contribution accordingly.
+
+**Interpretation**:
+- different measurements on the same circuit can have different V_eff
+- Larger V_eff implies Higher sensitivity to hardware noise (lower effective fidelity) and Larger classical simulation cost due to increased effective area
+
+**Reference**: Kechedzhi, K., et al. (2024). Effective quantum volume, fidelity and computational cost of noisy quantum processing experiments. Future Generation Computer Systems, 153, 431–441.
 
 ---
 
